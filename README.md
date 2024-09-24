@@ -53,18 +53,20 @@ Considere as seguintes User Stories:
      - Para efeito de simplificação do desafio, as 5 ações mais negociadas nos últimos 7 dias e seus respectivos preços não precisa ser "real", pode ser definida utilizando algum recurso pre-definido no backend (uma coleção predefinida no banco de dados ou arquivo JSON).
    
 
-`TORO-005` - Eu, como investidor, gostaria de ter acesso a uma lista de 6 produtos de Renda Fixa ou mais, com seus respectivos preços, taxas e lastro(estoque), para que eu possa escolher um deles e comprar a quantidade que eu escolher, respeitando o limite de saldo disponível na minha conta Toro e também o lastro do produto, para que assim eu possa adquirir produtos de Renda Fixa.
+`TORO-005` - Eu, como investidor, gostaria de ter acesso a uma lista de 6 ou mais produtos de Renda Fixa, com seus respectivos nomes, preços unitários, taxas e lastro(estoque), para que eu possa comprar. A cada produto escolhido durante a compra desejo informar as quantidades. Além disso, gostaria de ver meu saldo da minha conta Toro. Minhas compras devem respeitar o limite de saldo e lastro do produto, para que assim eu possa adquirir produtos de Renda Fixa com sucesso.
   - Restrições:
-Para efeito de simplificação do desafio, os 6 produtos e a conta Toro com o Saldo podem ser definidos utilizando algum recurso predefinido no backend (uma coleção no banco de dados ou arquivo JSON).
+    * Para efeito de simplificação do desafio, os 6 produtos e a conta Toro com o Saldo podem ser definidos utilizando algum recurso predefinido no backend (uma coleção no banco de dados ou arquivo JSON).
   - Critérios de Aceite:
-    * A lista de Produtos deve vir com a ordenação decrescente do campo Tax. (Melhores taxas primeiro)
+    * A lista de produtos deve vir com a ordenação decrescente do campo taxa (Melhores taxas primeiro)
+    * Cada produto de Renda Fixa, deve apresentar, nome do ativo, indexador, preço unitário, taxa e botão comprar.
+    * A cada compra, o estoque do produto deve ser debitado.
     * O saldo da conta Toro deve ser validado.
     * O estoque do Produto deve ser validado.
     * Após a compra, o saldo da conta Toro deve ser debitado
-    * Após a compra, o estoque do produto deve ser debitado.
+
 
 #### Frontend:
-* Garantir que o usuário possa visualizar o seu Saldo da conta Toro.
+* Garantir que o usuário possa visualizar o seu Saldo da conta Toro atualizado
 * Garantir que o usuário visualize a lista de produtos
 * Garantir que o usuário faça uma compra selecionando um produto específico informando a quantidade desejada.
 
