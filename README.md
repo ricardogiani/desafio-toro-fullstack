@@ -51,6 +51,54 @@ Considere as seguintes User Stories:
   - Restrições:
 
      - Para efeito de simplificação do desafio, as 5 ações mais negociadas nos últimos 7 dias e seus respectivos preços não precisa ser "real", pode ser definida utilizando algum recurso pre-definido no backend (uma coleção predefinida no banco de dados ou arquivo JSON).
+   
+
+`TORO-005` - Eu, como investidor, gostaria de ter acesso a uma lista de 6 produtos de Renda Fixa ou mais, com seus respectivos preços, taxas e lastro(estoque), para que eu possa escolher um deles e comprar a quantidade que eu escolher, respeitando o limite de saldo disponível na minha conta Toro e também o lastro do produto, para que assim eu possa adquirir produtos de Renda Fixa.
+  - Restrições:
+Para efeito de simplificação do desafio, os 6 produtos e a conta Toro com o Saldo podem ser definidos utilizando algum recurso predefinido no backend (uma coleção no banco de dados ou arquivo JSON).
+  - Critérios de Aceite:
+    * A lista de Produtos deve vir com a ordenação decrescente do campo Tax. (Melhores taxas primeiro)
+    * O saldo da conta Toro deve ser validado.
+    * O estoque do Produto deve ser validado.
+    * Após a compra, o saldo da conta Toro deve ser debitado
+    * Após a compra, o estoque do produto deve ser debitado.
+
+#### Frontend:
+* Garantir que o usuário possa visualizar o seu Saldo da conta Toro.
+* Garantir que o usuário visualize a lista de produtos
+* Garantir que o usuário faça uma compra selecionando um produto específico informando a quantidade desejada.
+
+#### Backend:
+  * API para buscar os dados de Produtos
+    * GET <apiBaseUrl>/products
+  * API para efetuar a operação de compra
+    * POST <apiBaseUrl>/order
+
+Sugestão da Lista de Produtos:
+```jsonc
+[{ "BondAsset": "CDB", // Tipo do Produto de Renda Fixa
+    "Index": "IPCA", // Indexador, ex: IPCA, Selic, etc
+    "Tax": 5.0, // Taxa atrelada ao Indexador
+    "IssuerName": "Banco Teste", // Emissor do Produto
+    "UnitPrice": 1000, // Preço unitário do Produto
+    "Stock": 100, // Estoque do produto	},
+
+  { "BondAsset": "LCI", // Tipo do Produto de Renda Fixa
+    "Index": "Pre", // Indexador, ex: IPCA, Selic, etc
+    "Tax": 12.0, // Taxa atrelada ao Indexador
+    "IssuerName": "Banco Teste 2", // Emissor do Produto
+    "UnitPrice": 2000, // Preço unitário do Produto
+    "Stock": 20, // Estoque do produto }]
+```
+
+Sugestão da Conta Toro com Saldo do Cliente:
+```jsonc
+{        
+  “Account": 00001, // Conta Toro do Cliente
+  “ClientId": "12454", // Id do Cliente
+  “Balance": 1000.00, // Saldo do Cliente
+}
+```
 
 ## Etapa:
 
